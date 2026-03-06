@@ -16,12 +16,11 @@
 
     <style>
       :root {
-        --primary: #001f4d;
+        --primary: #001f3f;
         --accent: #ff5500;
-        --accent-hover: #ff7733;
-        --accent-glow: rgba(255, 85, 0, 0.35);
-        --light: #fffaf5;
-        --dark: #000d1f;
+        --accent-h: #ff7733;
+        --accent-g: rgba(255, 85, 0, 0.3);
+        --card-bg: rgba(255, 255, 255, 0.07);
       }
 
       * {
@@ -31,30 +30,31 @@
       }
 
       body {
-        font-family: "Inter", sans-serif;
+        font-family: "Inter", system-ui, sans-serif;
         background: linear-gradient(
           135deg,
           var(--primary) 0%,
-          #003366 50%,
-          #ff5500 100%
+          #002b55 55%,
+          #1a3c66 100%
         );
         color: white;
-        line-height: 1.7;
+        line-height: 1.65;
       }
 
       header {
         position: fixed;
         top: 0;
-        width: 100%;
-        background: rgba(0, 31, 77, 0.92);
-        backdrop-filter: blur(14px);
-        padding: 1.2rem 6%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 31, 63, 0.94);
+        backdrop-filter: blur(16px);
+        padding: 1rem 5%;
         z-index: 1000;
-        border-bottom: 1px solid rgba(255, 85, 0, 0.35);
+        border-bottom: 1px solid rgba(255, 85, 0, 0.22);
       }
 
       nav {
-        max-width: 1300px;
+        max-width: 1400px;
         margin: 0 auto;
         display: flex;
         justify-content: space-between;
@@ -62,16 +62,16 @@
       }
 
       .logo {
-        font-size: 1.7rem;
-        font-weight: 700;
+        font-size: clamp(1.6rem, 4.5vw, 2.2rem);
+        font-weight: 800;
         color: var(--accent);
-        letter-spacing: -0.5px;
-        text-shadow: 0 0 12px var(--accent-glow);
+        letter-spacing: -0.8px;
+        text-shadow: 0 0 14px var(--accent-g);
       }
 
       main {
-        padding: 140px 6% 100px;
-        max-width: 1200px;
+        padding: clamp(140px, 18vh, 160px) 5% 90px;
+        max-width: 1280px;
         margin: 0 auto;
       }
 
@@ -82,62 +82,42 @@
 
       h1 {
         font-size: clamp(3.5rem, 9vw, 6.5rem);
-        font-weight: 700;
-        margin-bottom: 1.5rem;
+        font-weight: 800;
+        line-height: 0.95;
+        margin-bottom: 1.4rem;
         letter-spacing: -1.5px;
-        text-shadow: 0 8px 35px var(--accent-glow);
+        text-shadow: 0 8px 35px var(--accent-g);
       }
 
       .tagline {
-        font-size: 1.6rem;
+        font-size: clamp(1.35rem, 3.8vw, 1.65rem);
         max-width: 900px;
         margin: 0 auto 3rem;
-        opacity: 0.95;
+        opacity: 0.94;
       }
 
       .card {
-        background: rgba(255, 255, 255, 0.05);
+        background: var(--card-bg);
         border-radius: 24px;
-        padding: 3rem 2.5rem;
+        padding: 2.8rem;
         margin: 3rem 0;
-        border: 1px solid rgba(255, 85, 0, 0.3);
+        border: 1px solid rgba(255, 85, 0, 0.28);
         backdrop-filter: blur(14px);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        box-shadow: 0 12px 40px var(--accent-glow);
+        box-shadow: 0 14px 48px var(--accent-g);
+        transition: all 0.35s ease;
       }
 
       .card:hover {
         transform: translateY(-10px);
-        box-shadow: 0 25px 70px var(--accent-glow);
+        box-shadow: 0 24px 70px var(--accent-g);
       }
 
       h2 {
-        font-size: 2.4rem;
+        font-size: clamp(2rem, 4.5vw, 2.6rem);
         color: var(--accent);
         margin-bottom: 1.4rem;
-        text-shadow: 0 3px 12px var(--accent-glow);
-      }
-
-      .features {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 2rem;
-        margin: 2rem 0;
-      }
-
-      .feature {
-        font-size: 1.15rem;
-        padding: 1.2rem;
-        background: rgba(255, 85, 0, 0.18);
-        border-radius: 12px;
-        text-align: center;
-        border: 1px solid rgba(255, 85, 0, 0.35);
-        transition: all 0.3s;
-      }
-
-      .feature:hover {
-        background: rgba(255, 85, 0, 0.28);
-        transform: scale(1.04);
+        font-weight: 700;
+        text-shadow: 0 3px 12px var(--accent-g);
       }
 
       .cta {
@@ -149,20 +129,20 @@
         display: inline-block;
         background: var(--accent);
         color: white;
-        padding: 1.2rem 3rem;
-        border-radius: 60px;
-        font-size: 1.25rem;
+        padding: 1.1rem 2.8rem;
+        border-radius: 50px;
+        font-size: 1.2rem;
         font-weight: 600;
         text-decoration: none;
-        transition: all 0.4s ease;
-        box-shadow: 0 15px 40px var(--accent-glow);
-        margin: 1rem;
+        transition: all 0.35s ease;
+        box-shadow: 0 12px 35px var(--accent-g);
+        margin: 0.8rem;
       }
 
       .btn:hover {
-        transform: translateY(-8px) scale(1.06);
-        background: var(--accent-hover);
-        box-shadow: 0 30px 70px var(--accent-glow);
+        transform: translateY(-6px);
+        background: var(--accent-h);
+        box-shadow: 0 24px 60px var(--accent-g);
       }
 
       .btn.outline {
@@ -178,11 +158,11 @@
 
       footer {
         text-align: center;
-        padding: 4rem 6% 2rem;
-        background: var(--dark);
-        font-size: 1rem;
-        opacity: 0.85;
-        border-top: 1px solid rgba(255, 85, 0, 0.25);
+        padding: 3rem 5% 2rem;
+        background: #0a1421;
+        font-size: 0.95rem;
+        opacity: 0.8;
+        border-top: 1px solid rgba(255, 85, 0, 0.2);
       }
 
       @media (max-width: 768px) {
@@ -208,19 +188,13 @@
         <h1>Connect Globally Through Communication</h1>
         <p class="tagline">
           We are seeking enthusiastic partner schools worldwide for an
-          international VWO bilingual project focused on **intercultural &
-          digital communication** skills.
+          international VWO bilingual project focused on intercultural & digital
+          communication skills.
         </p>
       </section>
 
       <div class="card">
         <h2>Why partner with us?</h2>
-        <p>
-          Our VWO bilingual program delivers advanced English proficiency and a
-          strong international outlook. Students excel in real-world
-          communication: debating global issues, creating digital content,
-          bridging cultural gaps, and collaborating across borders.
-        </p>
         <p>
           Possible activities: online projects, penpals, virtual student
           meetings, eTwinning collaborations, shared blogs, communication
@@ -230,80 +204,41 @@
       </div>
 
       <div class="card">
-        <h2>Project Ideas – Communication in Action</h2>
-        <div class="features">
-          <div class="feature">
-            Intercultural debates & global issue discussions
-          </div>
-          <div class="feature">
-            Collaborative podcasts or YouTube-style videos
-          </div>
-          <div class="feature">
-            Digital storytelling & multilingual campaigns
-          </div>
-          <div class="feature">Virtual language cafés & student meetups</div>
-          <div class="feature">
-            Media literacy: fake news & social media impact
-          </div>
-          <div class="feature">Public speaking challenges across cultures</div>
-          <div class="feature">eTwinning twinspaces with shared outputs</div>
-          <div class="feature">
-            Erasmus+ virtual mobility & small partnerships
-          </div>
-        </div>
-      </div>
-
-      <div
-        class="card"
-        style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem"
-      >
-        <div>
-          <h2>English Version</h2>
-          <p>
-            We are a pre-university bilingual school (VWO bilingual) in Venlo,
-            Netherlands. Motivated students aged 15–18 are ready for authentic
-            international teamwork. This project strengthens language, cultural
-            awareness, and 21st-century skills like digital collaboration and
-            critical thinking.
-          </p>
-        </div>
-        <div>
-          <h2>Nederlandse versie</h2>
-          <p>
-            College Den Hulster VWO bilingual biedt onderwijs in het Engels op
-            vwo-niveau: veel lessen in het Engels, focus op taal, cultuur en
-            internationale competenties. We zoeken partners voor een
-            communicatie-project: intercultureel contact, digitale media,
-            wereldwijd debatteren en samenwerken.
-          </p>
-        </div>
+        <h2>About our school</h2>
+        <p>
+          We are College Den Hulster VWO Bilingual, a pre-university school in
+          Venlo, Netherlands, right near the German border. We offer full
+          bilingual VWO education with many subjects taught in English. Our
+          motivated students are used to working in English, using digital
+          tools, and collaborating internationally. They love intercultural
+          projects and are open to new cultures and ideas. This makes them
+          perfect partners for global communication and teamwork!
+        </p>
       </div>
 
       <div class="cta">
-        <h2 style="font-size: 3rem; margin-bottom: 2rem">
+        <h2 style="font-size: clamp(2.4rem, 6vw, 3.2rem); margin-bottom: 2rem">
           Let's start collaborating!
         </h2>
         <a
           href="mailto:info-cdh@ogvo.nl?subject=International%20VWO%20Bilingual%20Communication%20Project%20-%20Partnership%20Interest%20from%20[Your%20School%20Name]"
           class="btn"
+          >✉️ Contact us via email</a
         >
-          ✉️ Contact us via email
-        </a>
         <a
           href="https://www.ogvo.nl/collegedenhulster"
           target="_blank"
           class="btn outline"
+          >🌐 Visit our main website</a
         >
-          🌐 Visit our main website
-        </a>
       </div>
 
       <p
         style="
           text-align: center;
-          font-size: 1.1rem;
+          font-size: 1.05rem;
           opacity: 0.9;
-          margin: 2rem 0;
+          margin: 2.5rem 0;
         "
       >
         College Den Hulster • Hagerhofweg 15, 5912 PN Venlo, Netherlands<br />
