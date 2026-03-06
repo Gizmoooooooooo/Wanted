@@ -1,2 +1,2 @@
 # Wanted
-I as a student made this since we have an Assighment to work with other schools in other coutrys are u intersted? try this website.
+I as a student made this since we have an assignment to work with other schools in other countries are u intersted? Try this website.
